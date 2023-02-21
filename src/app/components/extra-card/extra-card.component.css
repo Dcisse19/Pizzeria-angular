@@ -1,5 +1,5 @@
 #extra-card{
-    width: 370px;
+    width: 100%;
     justify-content: space-between;
     font-family: var(--inter);
 }
@@ -29,4 +29,8 @@
 
 .minus-btn {
     opacity: .6;
+}
+
+hr {
+    margin-top: 5px;
 }

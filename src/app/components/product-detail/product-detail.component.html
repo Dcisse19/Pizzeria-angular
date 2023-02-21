@@ -6,14 +6,13 @@
             <p class="price">{{price | number:'1.2'}} €</p>
             <p class="description">{{product.description}}</p>
         </div>
-        <div id="ingredients" class="flex column">
+        <div *ngIf="product.category === 'pizza'" id="ingredients" class="flex column">
             <h3>Ingrédient inclus</h3>
             <div id="form" action="" class="flex column">
                 <div *ngFor="let includedIngredient of product.includedIngredients; let index =index;">
-                    <div  class="flex ingredient-name">
-                        <p>{{index}}</p>
+                    <div class="flex ingredient-name">
                         <div class="label">{{includedIngredient.ingredient.title}}</div>
-                        <button [class.unactive]="classesApplied[0]" (click)="switchIngredient(1)"></button>
+                        <button [class.unactive]="!includedIngredient.isSelected" (click)="switchIngredient(includedIngredient.ingredient.id)"></button>
                     </div>
                     <hr>
                 </div>

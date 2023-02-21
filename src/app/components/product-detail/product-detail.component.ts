@@ -26,7 +26,10 @@ export class ProductDetailComponent {
     })
   }
 
-  switchIngredient(index:number){
-    this.classesApplied[index] = !this.classesApplied;
+  switchIngredient(id:number){
+    const ingredient = this.product.includedIngredients.find((ingredient) => ingredient.ingredient.id === id);
+    console.log(ingredient)
+    if(ingredient) ingredient.isSelected = !ingredient.isSelected
+    // this.classesApplied[index] = !this.classesApplied;
   }
 }

@@ -1,11 +1,12 @@
 <div id="extra-card" class="flex">
     <div id="name-price" class="flex column">
-        <p id="name">Anchois</p>
-        <p id="price">1,00€</p>
+        <p id="name">{{extra.ingredient.title}}</p>
+        <p id="price">{{extraPrice | number:'1.2'}}€</p>
     </div>
     <div id="quantity-picker" class="flex">
-        <button class="quantity-btn minus-btn">-</button>
-        <p>0</p>
-        <button class="quantity-btn plus-btn">+</button>
+        <button (click)="minusQuantity()" class="quantity-btn minus-btn">-</button>
+        <p>{{extra.quantity}}</p>
+        <button (click)="plusQuantity()" class="quantity-btn plus-btn">+</button>
     </div>
 </div>
+<hr>

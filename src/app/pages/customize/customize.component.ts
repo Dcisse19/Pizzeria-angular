@@ -10,17 +10,32 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class CustomizeComponent {
 
-  product :IProduct = PRODUCTS[2];
+  product: IProduct = PRODUCTS[0];
+  totalPrice! :number;
 
-  constructor(   
-     private productService: ProductsService,
-     private activatedRoute: ActivatedRoute,
-     private router: Router
-    ){}
+  constructor(
+    private productService: ProductsService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
-  // getProduct() {
-  //   const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-  //   const foundProduct = this.productService.getProductById(id);
-  //   foundProduct ? this.product = foundProduct : this.router.navigate(['/not-found']);
-  // }
+  getProduct() {
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    const foundProduct = this.productService.getProductById(id);
+    if (foundProduct) {
+      this.product = foundProduct;
+    } else {
+      this.router.navigate(['/not-found']);
+    }
+  }
+
+  ngOnInit(){
+    this.getTotalProductPrice();
+  }
+  getTotalProductPrice(){
+    this.totalPrice = this.product.price/100;
+    this.product.extras.forEach(extra => {
+      this.totalPrice += (extra.quantity * extra.additionalPrice);
+    })
+  }
 }
