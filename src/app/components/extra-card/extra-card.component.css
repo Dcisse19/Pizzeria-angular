@@ -1,0 +1,32 @@
+#extra-card{
+    width: 370px;
+    justify-content: space-between;
+    font-family: var(--inter);
+}
+#name-price {
+    font-size: 16px;
+    align-items: flex-start;
+}
+#name{
+    font-weight: 700;
+}
+
+#quantity-picker{
+    gap: 12px;
+}
+
+#quantity-picker p{
+    font-weight: 400;
+    font-size: 20px;
+}
+.quantity-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.minus-btn {
+    opacity: .6;
+}

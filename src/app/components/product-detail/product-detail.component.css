@@ -1,0 +1,67 @@
+#product{
+    justify-content: space-between;
+    color: var(--dark-blue);
+    height: 371px;
+    width: 760px;
+}
+
+#product img {
+    width: 371px;
+}
+/*------ Description du produit ----- */
+#product > *{
+    width: 48%;
+}
+#product-infos{
+    height: 100%;
+    /* gap: 100px; */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#product-description {
+    font-weight: 700;
+    align-items: flex-start;
+    width: 100%;
+    gap: 15px;
+    /* width: 100%; */
+}
+
+#product-description h2{
+    font-size: 25px;
+}
+#product-description .price{
+    font-size: 20px;
+}
+#product-description .description{
+    font: 400 16px var(--inter);
+}
+
+/*------- Ingrédients ---------- */
+#ingredients {
+    width: 100%;
+    justify-content: space-between;
+    gap: 35px;
+}
+#ingredients h3{
+    font-size: 18px
+}
+#ingredients > * {
+    width: 100%;
+}
+.ingredient-name {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ingredient-name label {
+    font: 700 16px var(--inter);
+}
+
+form {
+    gap: 10px;
+    /* justify-content: space-between; */
+    /* width: 100%; */
+}
+
+

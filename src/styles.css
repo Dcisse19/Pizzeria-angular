@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --rouge : #E12417;
+    --dark-blue : #092947;
+    --light-grey: #F9F9F9;
+    --white : #FFFFFF;
+    --inter : 'Inter', sans-serif;
+    --playfair: 'Playfair Display', serif; 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* overflow-x: hidden; */
+    font-family: var(--playfair);
+    width: min(960px,100%);
+    background: var(--light-grey);
+    margin: 0 auto;
+}
+main{
+    width: min(760px,95%);
+    margin: 60px auto;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    background : var(--dark-blue);
+    cursor: pointer;
+    color: white;
+}
+
+input {
+    border: none;
+}
