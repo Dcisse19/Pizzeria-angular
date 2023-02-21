@@ -9,13 +9,13 @@ export class ProductsService {
   constructor() {}
 
   getProductsByCategory(){
-
   }
 
   getProductsByTag(){}
 
   getProductById(id:number) : IProduct | undefined {
     const foundProduct = PRODUCTS.find((product: IProduct) => product.id = id ); 
+    console.log('Produit trouvé : ', foundProduct);
     return foundProduct;
   }
 }
