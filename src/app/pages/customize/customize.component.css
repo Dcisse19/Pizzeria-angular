@@ -1,0 +1,20 @@
+#customize{
+    gap: 40px
+}
+
+#extras{
+    align-self: flex-end;
+    align-items: flex-start;
+    width: 371px;
+    gap:20px
+}
+app-extra-card{
+    width: 100%;
+}
+
+#toCart {
+    font: 700 16px var(--inter);
+    width: 100%;
+    padding: 25px 0px;
+    border-radius: 10px;
+}
