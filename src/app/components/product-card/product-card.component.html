@@ -1,7 +1,8 @@
 <section>
     <div class="container">
-        <img src="assets/images/pizzas/pizza-margherita.png" alt="pizza Margerita ">
-        <h3>Pizza Margherita</h3>
-        <p>7,00€</p>
+        <a routerLink="/products/{{product.id}}">
+        <img src={{product.picture}} alt={{product.title}}></a>
+        <h3>{{product.title}}</h3>
+        <p>{{product.price}}€</p>
     </div>
 </section>
