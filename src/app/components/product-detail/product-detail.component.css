@@ -52,16 +52,32 @@
 .ingredient-name {
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 5px;
 }
 
-.ingredient-name label {
+.ingredient-name .label {
     font: 700 16px var(--inter);
 }
 
-form {
+.ingredient-name button{
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    border: 2px solid var(--dark-blue);
+}
+
+.unactive{
+    background: white;
+}
+
+#form {
     gap: 10px;
     /* justify-content: space-between; */
     /* width: 100%; */
+}
+
+#form > div{
+    width: 100%;
 }
 
 

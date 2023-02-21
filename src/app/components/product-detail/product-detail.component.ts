@@ -10,11 +10,23 @@ export class ProductDetailComponent {
   @Input() product!: IProduct;
   price!: number;
 
+  classesApplied: boolean[] = [];
+
   ngOnInit(){
     this.convertToDecimal();
+    this.setToFalse();
   }
   convertToDecimal(){
-    
     this.price = this.product.price/100; 
+  }
+
+  setToFalse(){
+    this.classesApplied.forEach(classApplied => {
+      classApplied = false;
+    })
+  }
+
+  switchIngredient(index:number){
+    this.classesApplied[index] = !this.classesApplied;
   }
 }

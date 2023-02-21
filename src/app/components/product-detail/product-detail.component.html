@@ -8,18 +8,16 @@
         </div>
         <div id="ingredients" class="flex column">
             <h3>Ingrédient inclus</h3>
-            <form action="" class="flex column">
-                <div class="flex ingredient-name">
-                    <label for="">Nom ingrédient</label>
-                    <input type="radio">
+            <div id="form" action="" class="flex column">
+                <div *ngFor="let includedIngredient of product.includedIngredients; let index =index;">
+                    <div  class="flex ingredient-name">
+                        <p>{{index}}</p>
+                        <div class="label">{{includedIngredient.ingredient.title}}</div>
+                        <button [class.unactive]="classesApplied[0]" (click)="switchIngredient(1)"></button>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="flex ingredient-name">
-                    <label for="">Nom ingrédient</label>
-                    <input type="radio">
-                </div>
-                <hr>
-            </form>
+            </div>
         </div>
     </div>
 </div>
