@@ -1,0 +1,44 @@
+main{
+    height: 100vh;
+}
+
+.border{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--rouge);
+    padding: 20px;
+    gap: 30px;
+}
+
+#tableNumber{
+    gap: 30px;
+    margin-top: 0 auto;
+}
+
+h1{
+    font-size: 40px;
+    color: var(--rouge);
+    text-align: center;
+}
+
+p{
+    font-family: var(--inter);
+    font-size: 20px;
+    text-align: center;
+}
+
+input, button{
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+
+}
+
+.error {
+    color: red;
+  }
+
+
+
