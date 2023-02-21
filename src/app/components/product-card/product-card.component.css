@@ -1,0 +1,23 @@
+.container .flex {
+    width: 233px;
+    height: 268px;
+    background-color: var(--white);
+    }
+    
+    img {
+    width:207px;
+    height:171px;
+    
+    }
+    
+    h3 {
+    font-size: 16px;
+    }
+    
+    p {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700; 
+    
+    }
+    
