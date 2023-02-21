@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class CustomizeComponent {
 
-  product: IProduct = PRODUCTS[0];
+  product!: IProduct;
   totalPrice! :number;
 
   constructor(
@@ -19,8 +19,14 @@ export class CustomizeComponent {
     private router: Router
   ) { }
 
+  ngOnInit(){
+    this.getProduct();
+    this.getTotalProductPrice();
+  }
+
   getProduct() {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    console.log('id est : ',id);
     const foundProduct = this.productService.getProductById(id);
     if (foundProduct) {
       this.product = foundProduct;
@@ -29,9 +35,6 @@ export class CustomizeComponent {
     }
   }
 
-  ngOnInit(){
-    this.getTotalProductPrice();
-  }
   getTotalProductPrice(){
     this.totalPrice = this.product.price/100;
     this.product.extras.forEach(extra => {
