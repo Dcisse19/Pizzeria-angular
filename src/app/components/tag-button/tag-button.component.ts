@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ITag } from 'src/app/mocks/products.mock';
 
 @Component({
   selector: 'app-tag-button',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./tag-button.component.css']
 })
 export class TagButtonComponent {
+@Input() element!:ITag;
 
 }
