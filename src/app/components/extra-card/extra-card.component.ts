@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IExtraIngredient } from 'src/app/mocks/products.mock';
+import { CustomizeComponent } from 'src/app/pages/customize/customize.component';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ExtraCardComponent {
 
   extraPrice!: number;
 
-
+  constructor(private customizeComponent : CustomizeComponent){}
   ngOnInit() {
     this.convertToDecimal();
   }
@@ -23,11 +24,13 @@ export class ExtraCardComponent {
   plusQuantity() {
     if (this.extra.quantity < this.extra.maxQuantity) {
       this.extra.quantity++;
+      this.customizeComponent.getTotalProductPrice();
     }
   }
   minusQuantity() {
     if (this.extra.quantity > 0) {
       this.extra.quantity--;
+      this.customizeComponent.getTotalProductPrice();
     }
   }
 

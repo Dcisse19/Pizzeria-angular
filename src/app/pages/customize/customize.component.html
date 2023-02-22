@@ -3,6 +3,6 @@
     <div *ngIf="product.category === 'pizza'" id="extras" class="flex column">
         <h3>Extras</h3>
         <app-extra-card *ngFor="let extra of product.extras" [extra]="extra"></app-extra-card>
-        <button id="toCart">Ajouter au panier . {{totalPrice | number:'1.2'}} €</button>
     </div>
+    <button id="toCart">Ajouter au panier . {{totalPrice | number:'1.2'}} €</button>
 </section>
