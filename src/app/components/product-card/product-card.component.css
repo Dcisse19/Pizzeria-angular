@@ -1,7 +1,8 @@
-.container .flex {
+.container  {
     width: 233px;
     height: 268px;
     background-color: var(--white);
+    
     }
     
     img {

@@ -1,1 +1,5 @@
-<app-product-list></app-product-list>
+
+<div class="text" *ngFor= "let category of categories" >
+    <h2>{{category.title}}</h2>
+    <app-product-list [products]="category.products"></app-product-list>
+</div>
