@@ -17,6 +17,7 @@ const routes: Routes = [
     path:"cart",
     component: CartComponent
   },
+  
   {
     path:"modify-table",
     component: ModifyTableComponent
