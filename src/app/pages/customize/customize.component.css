@@ -14,7 +14,8 @@ app-extra-card{
 
 #toCart {
     font: 700 16px var(--inter);
-    width: 100%;
+    width: 371px;
     padding: 25px 0px;
     border-radius: 10px;
+    align-self: flex-end;
 }

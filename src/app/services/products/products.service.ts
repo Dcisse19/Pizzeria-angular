@@ -1,21 +1,41 @@
 import { Injectable } from '@angular/core';
-import { IProduct, PRODUCTS } from 'src/app/mocks/products.mock';
+import { IProduct, IProductsByCategory, PRODUCTS } from 'src/app/mocks/products.mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor() {}
+  // categories: IProductsByCategory[] = PRODUCTS;
+  product!: IProduct;
 
-  getProductsByCategory(){
+  // products: IProduct = this.categories.products;
+  constructor() { }
+
+  getProductsByCategory(categoryName: string): IProductsByCategory | undefined {
+    const foundCategory = PRODUCTS.find((p: IProductsByCategory) => p.category === categoryName);
+    return foundCategory;
+  }
+  getProductsByTag() { }
+
+  createNewArray(): IProduct[] {
+    // const products: IProduct[] = [];
+
+    const products = PRODUCTS[0].products.concat(PRODUCTS[1].products,PRODUCTS[2].products)
+    // PRODUCTS.forEach(category => {
+    //   products.concat(category.products);
+      console.log(products);
+    // })
+    return products;
   }
 
-  getProductsByTag(){}
-
-  getProductById(id:number) : IProduct | undefined {
-    const foundProduct = PRODUCTS.find((product: IProduct) => product.id = id ); 
+  getProductById(id: number): IProduct | undefined {
+    const products = this.createNewArray();
+    const foundProduct = products.find((product: IProduct) => product.id = id)
     console.log('Produit trouvé : ', foundProduct);
-    return foundProduct;
+    return this.product;
   }
 }
+
+
+
