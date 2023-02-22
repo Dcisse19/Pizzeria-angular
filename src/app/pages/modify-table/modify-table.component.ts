@@ -42,7 +42,7 @@ export class ModifyTableComponent implements OnInit {
     return null;
   }
 
-  // Fonction de validation personnalisée pour vérifier si le numéro de table est
+  // Fonction de validation personnalisée pour vérifier si le numéro de table est compris entre 1 et 14
   validateTableRange(control: AbstractControl): { [key: string]: any } | null {
     const tableNumber = Number(control.value);
     if (tableNumber < 1 || tableNumber > 14) {
