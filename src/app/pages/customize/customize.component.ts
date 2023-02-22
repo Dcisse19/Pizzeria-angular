@@ -10,8 +10,8 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class CustomizeComponent {
 
-  // product!: IProduct;
-  product: IProduct = PRODUCTS[0].products[6];
+  product!: IProduct;
+  // product: IProduct = PRODUCTS[0].products[6];
   totalPrice! :number;
 
   constructor(
@@ -21,21 +21,21 @@ export class CustomizeComponent {
   ) { }
 
   ngOnInit(){
-    // this.getProduct();
+    this.getProduct();
     this.getTotalProductPrice();
     this.productService.createNewArray();
   }
 
-  // getProduct() {
-  //   const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-  //   console.log('id est : ',id);
-  //   const foundProduct = this.productService.getProductById(id);
-  //   if (foundProduct) {
-  //     this.product = foundProduct;
-  //   } else {
-  //     this.router.navigate(['/not-found']);
-  //   }
-  // }
+  getProduct() {
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    const foundProduct = this.productService.getProductById(id);
+    if (foundProduct) {
+      this.product = foundProduct;
+      console.log(this.product);
+    } else {
+      this.router.navigate(['/not-found']);
+    }
+  }
 
   getTotalProductPrice(){
     this.totalPrice = this.product.price/100;
