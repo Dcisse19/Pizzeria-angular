@@ -12,9 +12,17 @@ export interface IExtraIngredient {
   additionalPrice: number;
 }
 
+
 export type ProductCategoryType = "pizza" | "drink" | "dessert";
 
 export type TagType = "tomato" | "white" | "drink" | "veggie" | "dessert";
+
+export interface ITag {
+  id: number;
+  nom: TagType ;
+  titre: string;
+ 
+}
 
 export interface IProduct {
   id: number;
@@ -34,6 +42,35 @@ export interface IProductsByCategory {
   title: string;
   products: IProduct[];
 }
+
+export const TAGS: ITag [] = [ 
+{
+  id: 1,
+  nom: "tomato",
+  titre: "Base tomate"
+
+},
+{
+id: 2,
+nom: "white",
+titre: "Base blanche"
+},
+{
+id: 3,
+nom:"veggie",
+titre: "Veggie"
+},
+{
+id: 4,
+nom: "dessert",
+titre: "Dessert"
+},
+{
+id: 5,
+nom: "drink",
+titre: "Boissons"
+}] 
+
 
 export const PRODUCTS: IProductsByCategory[] = [
   {

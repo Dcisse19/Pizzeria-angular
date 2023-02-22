@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProductsByCategory, PRODUCTS } from 'src/app/mocks/products.mock';
+import { IProductsByCategory, ITag, PRODUCTS, TAGS } from 'src/app/mocks/products.mock';
 
 @Component({
   selector: 'app-products',
@@ -8,4 +8,5 @@ import { IProductsByCategory, PRODUCTS } from 'src/app/mocks/products.mock';
 })
 export class ProductsComponent {
   categories: IProductsByCategory[]= PRODUCTS;
+  tags: ITag[]= TAGS;
 }
