@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-table-form',
@@ -14,7 +15,10 @@ export class TableFormComponent implements OnInit {
   selectedTableNumber!: number;
 
 
+
   constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router,
+    private cartService : CartService) {}
 
   ngOnInit() {
     // Initialisation de notre formulaire avec un champ "tableNumber" qui doit être valide s'il est non vide, ne contient pas de lettres et est compris entre 1 et 14
@@ -32,8 +36,10 @@ export class TableFormComponent implements OnInit {
       // Mise à jour de la variable selectedTableNumber dans le HeaderComponent
       const selectedTableNumber = Number(this.tableForm.get('tableNumber')!.value);
       const headerComponent = this.router.getCurrentNavigation()?.extras.state?.['headerComponent'];
+      console.log('table n°', selectedTableNumber);
       if (headerComponent) {
         headerComponent.selectedTableNumber = selectedTableNumber;
+        this.cartService.table = selectedTableNumber;
       }
       // Redirection vers la page de tous les produits si le formulaire est valide
       this.router.navigate(['/products']);

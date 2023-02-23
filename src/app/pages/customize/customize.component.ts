@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct, PRODUCTS } from 'src/app/mocks/products.mock';
+import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -11,11 +12,13 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class CustomizeComponent {
 
   product!: IProduct;
+  quantity: number = 1;
   // product: IProduct = PRODUCTS[0].products[6];
   totalPrice! :number;
 
   constructor(
     private productService: ProductsService,
+    private cartService: CartService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }
@@ -36,11 +39,19 @@ export class CustomizeComponent {
       this.router.navigate(['/not-found']);
     }
   }
-
+  
   getTotalProductPrice(){
     this.totalPrice = this.product.price/100;
     this.product.extras.forEach(extra => {
       this.totalPrice += (extra.quantity * (extra.additionalPrice/100));
     })
+    this.product.price = this.totalPrice*100;
+  }
+  addToCart(){
+   const cartProduct: CartProduct = {
+    product: this.product!,
+    quantity: this.quantity,
+   } 
+    this.cartService.addProductToCart(cartProduct);
   }
 }

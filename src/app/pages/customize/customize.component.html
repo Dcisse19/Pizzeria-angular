@@ -4,5 +4,5 @@
         <h3>Extras</h3>
         <app-extra-card *ngFor="let extra of product.extras" [extra]="extra"></app-extra-card>
     </div>
-    <button id="toCart">Ajouter au panier . {{totalPrice | number:'1.2'}} €</button>
+    <button id="toCart" (click)="addToCart()">Ajouter au panier . {{totalPrice | number:'1.2'}} €</button>
 </section>
