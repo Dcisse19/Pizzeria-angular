@@ -77,6 +77,8 @@ export class CartService {
     this.getTotalPrice();
   }
 
+
+
   getCartProductById(id:number){
     const cart = this.getCart();
     const product = cart.find((product:CartProduct) => product.product.id === id);

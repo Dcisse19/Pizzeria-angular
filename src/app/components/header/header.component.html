@@ -1,8 +1,8 @@
 <header class="flex">
   <h1>Pizzeria Della Mamma</h1>
 
-  <div class="flex buthead">
-    <a class="butable" *ngIf="!showLinks" (click)="redirectToModifyTable()">Table {{ selectedTableNumber }}</a>
-    <a class="flex butcart" *ngIf="!showLinks" (click)="redirectToCart()"> <img src="assets/icons/cart_shopping.png" alt=""> 0 </a>
+  <div *ngIf="this.tableService.selectedTableNumber !==0" class="flex buthead">
+    <a class="butable" routerLink="modify-table">Table {{ this.tableService.selectedTableNumber }}</a>
+    <a class="flex butcart" routerLink="cart"> <img src="assets/icons/cart_shopping.png" alt=""> {{ this.cartService.productQuantity }} </a>
   </div>
 </header>
