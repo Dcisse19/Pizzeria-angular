@@ -26,7 +26,7 @@ filterProducts() {
   }
 }
   
- changeColor(): void {
+changeColor(): void {
    if (this.buttonColor===this.orginalBtnColor) {
     this.buttonColor= 'var(--dark-blue)';
     this.fontColor='white'
