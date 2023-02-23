@@ -32,6 +32,7 @@ export interface IProduct {
   price: number;
   category: ProductCategoryType;
   picture: string;
+  isVisible : boolean;
   includedIngredients: IIncludedIngredient[];
   extras: IExtraIngredient[];
   tags: TagType[];
@@ -92,6 +93,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 900,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-chicken.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -352,6 +354,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 900,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-orientale.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -626,6 +629,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 950,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-bolognaise.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -893,6 +897,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 950,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-rio.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -1159,6 +1164,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 950,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-quatre-fromages.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -1426,6 +1432,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 850,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-napolitaine.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -1692,6 +1699,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 700,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-margherita.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -1945,6 +1953,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 900,
         category: "pizza",
         picture: "assets/images/pizzas/pizza-veggie.png",
+        isVisible : true,
         includedIngredients: [
           {
             ingredient: {
@@ -2225,6 +2234,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 350,
         category: "drink",
         picture: "assets/images/drinks/coca-cola.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["drink"],
@@ -2236,6 +2246,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 350,
         category: "drink",
         picture: "assets/images/drinks/coca-cola-zero.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["drink"],
@@ -2247,6 +2258,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 450,
         category: "drink",
         picture: "assets/images/drinks/limonade.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["drink"],
@@ -2265,6 +2277,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 690,
         category: "dessert",
         picture: "assets/images/desserts/chocolat.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["dessert"],
@@ -2276,6 +2289,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 690,
         category: "dessert",
         picture: "assets/images/desserts/pannacotta.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["dessert"],
@@ -2288,6 +2302,7 @@ export const PRODUCTS: IProductsByCategory[] = [
         price: 690,
         category: "dessert",
         picture: "assets/images/desserts/tiramisu.png",
+        isVisible : true,
         includedIngredients: [],
         extras: [],
         tags: ["dessert"],
