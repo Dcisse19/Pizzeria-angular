@@ -37,7 +37,7 @@ export class TableFormComponent implements OnInit {
       console.log('table n°', selectedTableNumber);
       if (headerComponent) {
         headerComponent.selectedTableNumber = selectedTableNumber;
-        this.cartService.table = selectedTableNumber;
+        // this.cartService.table = selectedTableNumber;
       }
       // Redirection vers la page de tous les produits si le formulaire est valide
       this.router.navigate(['/products']);
