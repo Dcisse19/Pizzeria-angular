@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
+import { RecapComponent } from '../recap/recap.component';
+
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +11,10 @@ import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 })
 export class CartComponent {
   cart: CartProduct[] = [];
-
-  constructor(public cartService: CartService){}
+  
+  constructor(public cartService: CartService,
+    private recapComponent : RecapComponent,
+    private router : Router){}
 
   ngOnInit(){
     this.getCart();
@@ -21,5 +26,12 @@ export class CartComponent {
   deleteCart(){
     this.cartService.resetCart();
     this.getCart();
+  }
+
+  validateCart(){
+    this.cart = this.recapComponent.cart;
+    this.cartService.totalPrice = this.recapComponent.totalPrice;
+    this.cartService.resetCart();
+    this.router.navigate(['/recapitulatif']);
   }
 }

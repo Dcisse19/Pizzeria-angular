@@ -1,1 +1,11 @@
-<p>recap works!</p>
+<section id="cart" class="flex column">
+    <div id="subSection" class="flex">
+        <h2>Commande table 42</h2>
+        <button id="deleteCart-btn">Vider le panier</button>
+    </div>
+    <div id="cart-products" class="flex column">
+        <app-cart-product-card *ngFor="let cartProduct of cart; let index = index" [index]="index"
+            [product]="cartProduct" [cart]="cart"></app-cart-product-card>
+    </div>
+    <p id="total"><span>Total :</span> {{totalPrice/100 | number:'1.2'}}€</p>
+</section>

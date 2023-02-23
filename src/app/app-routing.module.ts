@@ -23,7 +23,7 @@ const routes: Routes = [
     component: ModifyTableComponent
   },
   {
-    path:"recap",
+    path:"recapitulatif",
     component: RecapComponent
   },
   {

@@ -5,11 +5,18 @@
     <p class="price">{{price | number : '1.2'}}€</p>
     <!--div avec le choix -->
     <div class="textChoix">
-      <div class="flex">
-        <p *ngFor="let ingredient of product.product.includedIngredients">{{ingredient.ingredient.title}}, </p>
+      <div id="ingredients" class="flex">
+        <ng-container *ngFor="let ingredient of product.product.includedIngredients">
+          <p *ngIf="!ingredient.isSelected"><i class="fas fa-light fa-ban"></i> {{ingredient.ingredient.title}}, </p>
+        </ng-container>
       </div>
-      <p><span>Extra : </span> ingredient1 ,ingredient2,ingredient3</p>
+      <div id="extras" class="flex">
+        <p >Extras : </p>
+        <ng-container *ngFor="let extra of product.product.extras">
+          <p *ngIf="extra.quantity > 0"> <span *ngIf="extra.quantity > 1">{{extra.quantity}}</span> {{extra.ingredient.title}} (+{{extra.additionalPrice/100 | number:'1.2'}}€), </p>
+        </ng-container>
+      </div>
     </div>
   </div>
-  <button id="delete-btn">x</button>
+  <button (click)="removefromCart()" id="delete-btn">x</button>
 </div>
