@@ -72,5 +72,7 @@ export class CartService {
     // this.getTotalPrice();
   }
 
+  
+
 
 }

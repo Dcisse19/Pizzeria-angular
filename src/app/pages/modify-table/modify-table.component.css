@@ -7,7 +7,6 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid var(--rouge);
     padding: 20px;
     gap: 30px;
 }

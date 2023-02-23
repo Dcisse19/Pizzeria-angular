@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TableServiceService } from 'src/app/services/table-service.service';
 
 @Component({
   selector: 'app-modify-table',
@@ -11,9 +12,10 @@ export class ModifyTableComponent implements OnInit {
 
   tableForm!: FormGroup; // Déclaration d'un objet FormGroup pour gérer notre formulaire
   submitted = false; // Variable pour indiquer si le formulaire a été soumis ou non
-  tableNumber: number;
+  tableNumber: number; // Numéro de table renseigné par l'utilisateur
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
+
+  constructor( public tableService: TableServiceService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
     this.tableNumber = this.activatedRoute.snapshot.params['tableNumber'];
   } // Injection des dépendances FormBuilder et Router dans notre component
 
@@ -28,6 +30,9 @@ export class ModifyTableComponent implements OnInit {
     this.submitted = true; // Le formulaire a été soumis
     // Vérification si le formulaire est valide lors de sa soumission
     if (this.tableForm.valid) {
+      // Stockage du numéro de table dans le local storage grâce au service TableService
+      const selectedTableNumber = Number(this.tableForm.get('tableNumber')!.value);
+      this.tableService.setSelectedTable(selectedTableNumber);
       // Redirection vers la page de tous les produits si le formulaire est valide
       this.router.navigate(['/products']);
     }
