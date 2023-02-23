@@ -2,7 +2,7 @@
   <h1>Pizzeria Della Mamma</h1>
 
   <div class="flex buthead">
-    <a class="butable" (click)="redirectToModifyTable()">Table {{ selectedTableNumber }}</a>
-    <a class="flex butcart" (click)="redirectToCart()"> <img src="assets/icons/cart_shopping.png" alt=""> 0 </a>
+    <a class="butable" *ngIf="!showLinks" (click)="redirectToModifyTable()">Table {{ selectedTableNumber }}</a>
+    <a class="flex butcart" *ngIf="!showLinks" (click)="redirectToCart()"> <img src="assets/icons/cart_shopping.png" alt=""> 0 </a>
   </div>
 </header>

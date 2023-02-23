@@ -7,9 +7,18 @@ import { Router } from '@angular/router';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    selectedTableNumber!: number; // Initialise la variable avec la table à null
+    selectedTableNumber!: number; // Initialise la variable 
+    showLinks = true;
 
-    constructor(private router: Router) { }
+
+    constructor(private router: Router) {
+
+        if (this.router.url === "/") {
+            this.showLinks = false;
+          } else {
+            this.showLinks = true;
+          }
+    }
 
     redirectToModifyTable() {
         this.router.navigate(['/modify-table']);

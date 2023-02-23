@@ -13,6 +13,10 @@ export class TableFormComponent implements OnInit {
   tableForm!: FormGroup; // Déclaration d'un objet FormGroup pour gérer notre formulaire
   submitted = false; // Variable pour indiquer si le formulaire a été soumis ou non
   selectedTableNumber!: number;
+
+
+
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
   constructor(private formBuilder: FormBuilder, private router: Router,
     private cartService : CartService) {}
 
@@ -21,7 +25,9 @@ export class TableFormComponent implements OnInit {
     this.tableForm = this.formBuilder.group({
       tableNumber: ['', [Validators.required, this.validateTableNumber, this.validateTableRange]]
     });
+    
   }
+  
 
   submitForm() {
     this.submitted = true; // Le formulaire a été soumis
