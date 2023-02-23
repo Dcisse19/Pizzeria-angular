@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableServiceService } from 'src/app/services/table-service.service';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,16 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class HeaderComponent {
 
+showCart : boolean = true;
 
+  constructor(public tableService: TableServiceService, public cartService: CartService, public router : Router) {}
 
-  constructor(public tableService: TableServiceService, public cartService: CartService) {}
+  ngOnInit(){
+    console.log(this.router);
+    if(this.router.url.includes('recapitulatif')){
+      this.showCart = false;
+    }
 
-
+  }
 }
 

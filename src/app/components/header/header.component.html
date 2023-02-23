@@ -3,6 +3,6 @@
 
   <div *ngIf="this.tableService.selectedTableNumber !==0" class="flex buthead">
     <a class="butable" routerLink="modify-table">Table {{ this.tableService.selectedTableNumber }}</a>
-    <a class="flex butcart" routerLink="cart"> <img src="assets/icons/cart_shopping.png" alt=""> {{ this.cartService.productQuantity }} </a>
+    <a *ngIf="showCart" class="flex butcart" routerLink="cart"> <img src="assets/icons/cart_shopping.png" alt=""> {{ this.cartService.productQuantity }} </a>
   </div>
 </header>
