@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
+import { TableServiceService } from 'src/app/services/table-service.service';
 import { RecapComponent } from '../recap/recap.component';
 
 
@@ -14,6 +15,7 @@ export class CartComponent {
   
   constructor(public cartService: CartService,
     private recapComponent : RecapComponent,
+    public tableService: TableServiceService,
     private router : Router){}
 
   ngOnInit(){
