@@ -5,7 +5,9 @@
     <p class="price">{{price | number : '1.2'}}€</p>
     <!--div avec le choix -->
     <div class="textChoix">
-      <p *ngFor="let ingredient of product.product.includedIngredients"> {{ingredient.ingredient.title}}</p>
+      <div class="flex">
+        <p *ngFor="let ingredient of product.product.includedIngredients">{{ingredient.ingredient.title}}, </p>
+      </div>
       <p><span>Extra : </span> ingredient1 ,ingredient2,ingredient3</p>
     </div>
   </div>
