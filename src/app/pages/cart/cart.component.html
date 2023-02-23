@@ -1,3 +1,13 @@
-
-<app-cart-product-card></app-cart-product-card>
-
+<section id="cart" class="flex column">
+    <div id="subSection" class="flex">
+        <h2>Panier</h2>
+        <button id="deleteCart-btn" (click)="deleteCart()">Vider le panier</button>
+    </div>
+    <div id="cart-products" class="flex column">
+        <app-cart-product-card *ngFor="let cartProduct of cart; let index = index" [index]="index"
+            [product]="cartProduct"></app-cart-product-card>
+    </div>
+    <p id="total"><span>Total :</span> 23.00€</p>
+    <button id="validate-btn">Table : {{this.cartService.table}}Envoyer la commande</button>
+    <a routerLink="modify-table">Votre table n'est pas la 42 ?</a>
+</section>

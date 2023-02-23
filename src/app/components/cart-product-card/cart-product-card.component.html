@@ -1,14 +1,13 @@
 <div class="container">
-   <img src="assets/images/pizzas/pizza-margherita.png" 
-          alt="pizza Margerita">
- <div class="blockText">     
-   <h3>Pizza Margherita</h3>
-   <p>7,00€</p>
- <!--div avec le choix -->
-  <div class="textChoix" >
-     <p> O ingrediant incus</p>
-     <p>Extra</p>
-     <p>ingredient1 ,ingredient2,ingredient3</p>
-</div> 
- </div>
- </div>
+  <img src="{{product.product.picture}}" alt="{{product.product.title}}">
+  <div class="blockText">
+    <h3>{{product.product.title}}</h3>
+    <p class="price">{{price | number : '1.2'}}€</p>
+    <!--div avec le choix -->
+    <div class="textChoix">
+      <p *ngFor="let ingredient of product.product.includedIngredients"> {{ingredient.ingredient.title}}</p>
+      <p><span>Extra : </span> ingredient1 ,ingredient2,ingredient3</p>
+    </div>
+  </div>
+  <button id="delete-btn">x</button>
+</div>

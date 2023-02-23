@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IProduct } from 'src/app/mocks/products.mock';
+import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 
 
 @Component({
@@ -7,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart-product-card.component.css']
 })
 export class CartProductCardComponent {
+  @Input() product! : CartProduct;
+  @Input() index! : number;
+  price! :number;
+
+  ngOnInit(){
+    this.convertToDecimal();
+  }
+  constructor(private cartService: CartService){}
+  convertToDecimal(){
+    this.price = this.product.product.price/100; 
+  }
+
+  removefromCart(){
+    this.cartService.removeProductFromCart(this.index);
+  }
 
 }

@@ -23,6 +23,7 @@ body{
 main{
     width: min(760px,95%);
     margin: 60px auto;
+    min-height: 1000px;
 }
 
 img{
