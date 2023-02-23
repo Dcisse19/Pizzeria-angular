@@ -3,4 +3,10 @@ button {
     border-radius: 20px;
     color: var(--dark-blue);
     margin-left: 20px;
+    background-color: var(--white);
+}
+
+.active {
+    background-color: var(--dark-blue);
+    color: var(--white);
 }
