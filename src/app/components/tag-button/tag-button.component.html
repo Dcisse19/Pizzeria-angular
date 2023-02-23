@@ -1,3 +1,4 @@
-<button>
+<button (click)="changeColor(); filterProducts()" [style.backgroundColor]="buttonColor"
+                                [style.color]="fontColor">
     {{element.titre}}
 </button>

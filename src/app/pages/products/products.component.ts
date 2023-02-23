@@ -9,4 +9,6 @@ import { IProductsByCategory, ITag, PRODUCTS, TAGS } from 'src/app/mocks/product
 export class ProductsComponent {
   categories: IProductsByCategory[]= PRODUCTS;
   tags: ITag[]= TAGS;
+
+  
 }
