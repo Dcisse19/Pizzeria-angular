@@ -5,9 +5,9 @@
     </div>
     <div id="cart-products" class="flex column">
         <app-cart-product-card *ngFor="let cartProduct of cart; let index = index" [index]="index"
-            [product]="cartProduct"></app-cart-product-card>
+            [product]="cartProduct" [cart]="cart"></app-cart-product-card>
     </div>
-    <p id="total"><span>Total :</span> 23.00€</p>
-    <button id="validate-btn">Table n°42 : Envoyer la commande</button>
+    <p id="total"><span>Total :</span> {{this.cartService.totalPrice/100 | number:'1.2'}}€</p>
+    <button id="validate-btn" (click)="validateCart()">Table n°42 : Envoyer la commande</button>
     <a routerLink="modify-table">Votre table n'est pas la 42 ?</a>
 </section>

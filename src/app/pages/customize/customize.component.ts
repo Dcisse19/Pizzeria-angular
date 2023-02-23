@@ -12,7 +12,6 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class CustomizeComponent {
 
   product!: IProduct;
-  quantity: number = 1;
   // product: IProduct = PRODUCTS[0].products[6];
   totalPrice! :number;
 
@@ -50,7 +49,6 @@ export class CustomizeComponent {
   addToCart(){
    const cartProduct: CartProduct = {
     product: this.product!,
-    quantity: this.quantity,
    } 
     this.cartService.addProductToCart(cartProduct);
   }

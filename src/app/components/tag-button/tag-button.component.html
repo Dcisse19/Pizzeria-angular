@@ -1,4 +1,3 @@
-<button (click)="changeColor(); filterProducts()" [style.backgroundColor]="buttonColor"
-                                [style.color]="fontColor">
+<button [class.active]= "element.isSelected"(click)="switchTag()"  >
     {{element.titre}}
 </button>
