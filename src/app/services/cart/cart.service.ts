@@ -8,16 +8,11 @@ export interface CartProduct{
   quantity: number;
 }
 
-export interface CartContent{
-  table : number;
-  cartProducts: CartProduct[];
-}
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   
-  table!:number;
   totalPrice: number = 0;
   productQuantity: number = 0;
   constructor(
