@@ -19,8 +19,9 @@ export type TagType = "tomato" | "white" | "drink" | "veggie" | "dessert";
 
 export interface ITag {
   id: number;
-  nom: TagType ;
+  nom: TagType;
   titre: string;
+  isSelected: boolean;
  
 }
 
@@ -47,28 +48,33 @@ export const TAGS: ITag [] = [
 {
   id: 1,
   nom: "tomato",
-  titre: "Base tomate"
+  titre: "Base tomate",
+  isSelected:false,
 
 },
 {
 id: 2,
 nom: "white",
-titre: "Base blanche"
+titre: "Base blanche",
+isSelected:false,
 },
 {
 id: 3,
 nom:"veggie",
-titre: "Veggie"
+titre: "Veggie",
+isSelected:false,
 },
 {
 id: 4,
 nom: "dessert",
-titre: "Dessert"
+titre: "Dessert",
+isSelected:false,
 },
 {
 id: 5,
 nom: "drink",
-titre: "Boissons"
+titre: "Boissons",
+isSelected:false,
 }] 
 
 

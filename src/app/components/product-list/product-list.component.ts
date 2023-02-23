@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from 'src/app/mocks/products.mock';
+import { IProduct} from 'src/app/mocks/products.mock';
 
 
 @Component({
@@ -10,4 +10,5 @@ import { IProduct } from 'src/app/mocks/products.mock';
 export class ProductListComponent {
   @Input() products!: IProduct[];
   
+
 }
