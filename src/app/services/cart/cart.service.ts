@@ -5,7 +5,11 @@ import { ProductsService } from '../products/products.service';
 
 export interface CartProduct{
   product: IProduct;
-  quantity: number;
+}
+
+export interface RecapContent{
+  products: CartProduct[];
+  totalPrice: number;
 }
 
 @Injectable({
@@ -16,7 +20,7 @@ export class CartService {
   totalPrice: number = 0;
   productQuantity: number = 0;
   constructor(
-    private productService: ProductsService,
+    private productsService: ProductsService,
     private router: Router
   ) {}
 
@@ -43,15 +47,16 @@ export class CartService {
     }
   }
 
+
   initCart(){
     this.getCart();
     // this.getTotalQuantity();
-    // this.getTotalPrice();
+    this.getTotalPrice();
   }
 
   resetCart(){
     this.createCart();
-    // this.getTotalPrice();
+    this.getTotalPrice();
     // this.getTotalQuantity();
   } 
 
@@ -60,7 +65,7 @@ export class CartService {
     cart.push(cartProduct);
     this.saveCart(cart);
      // this.getTotalQuantity();
-    // this.getTotalPrice();
+    this.getTotalPrice();
     this.router.navigate(['/cart']);
   }
 
@@ -69,8 +74,27 @@ export class CartService {
     cart.splice(index,1);
     this.saveCart(cart);
     // this.getTotalQuantity();
-    // this.getTotalPrice();
+    this.getTotalPrice();
   }
 
+  getCartProductById(id:number){
+    const cart = this.getCart();
+    const product = cart.find((product:CartProduct) => product.product.id === id);
+    return product;
+   }
+
+
+  getTotalPrice() : void{
+    const cart = this.getCart();
+    const total = cart.reduce((accumulator:number, currentValue:CartProduct) => {
+      // récupère produit directement dans le mock
+      const product = this.getCartProductById(currentValue.product.id);
+     // Si le produit n'existe pas, on le retourne
+      if(!product) return accumulator;
+      return accumulator + (product?.product.price);
+    },0);
+    // On assigne la valeur du total à la propriété totalPrice
+    this.totalPrice = total;
+  }
 
 }

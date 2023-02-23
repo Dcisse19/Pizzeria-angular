@@ -22,15 +22,25 @@ margin-top: 12px;
 margin-left: 20px;
 }
 
-
-
-
-
 .textChoix {
     margin-top: 40px;
     font: 400 16px var(--inter);
 }
 
+
+.fa-ban{
+    font-size: 13px;
+}
+
+#ingredients {
+    justify-content: flex-start;
+    gap : 5px;
+}
+
+#extras {
+    gap : 5px;
+    justify-content: flex-start;
+}
 #delete-btn{
     background: white;
     position: absolute;

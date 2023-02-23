@@ -1,0 +1,39 @@
+#cart{
+    gap: 30px;
+}
+#cart h2{
+    font-size: 20px;
+    font-weight: 700;
+    font-style: 10px;
+}
+
+#subSection {
+    justify-content: space-between;
+    width: 100%;
+}
+#deleteCart-btn {
+    background: none;
+    color: var(--rouge);
+    font: 400 16px var(--inter);
+}
+
+#cart-products{
+    gap: 25px;
+}
+
+#total {
+    font: 400 20px var(--inter);
+    align-self: flex-end;
+}
+
+#total span {
+    font-weight: 700;
+}
+
+
+#cart a{
+    align-self: flex-end;
+    font: 400 16px var(--inter);
+    color: var(--dark-blue);
+    text-decoration: underline;
+}

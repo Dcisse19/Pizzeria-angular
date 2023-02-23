@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartProduct } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-recap',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./recap.component.css']
 })
 export class RecapComponent {
+  cart!: CartProduct[];
+  totalPrice!: number;
 
+  ngOnInit() {
+    console.log('panier', this.cart);
+    console.log('total', this.totalPrice);
+  }
 }
