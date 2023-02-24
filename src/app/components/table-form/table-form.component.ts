@@ -15,6 +15,7 @@ export class TableFormComponent implements OnInit {
   submitted = false; // Variable pour indiquer si le formulaire a été soumis ou non
   selectedTableNumber!: number;
 
+
   constructor(private formBuilder: FormBuilder, private router: Router,
     private tableService: TableServiceService, private cartService: CartService) {}
 
@@ -25,6 +26,7 @@ export class TableFormComponent implements OnInit {
     });
     
   }
+
   
 
   submitForm() {
