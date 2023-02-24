@@ -6,7 +6,7 @@ import { TableServiceService } from 'src/app/services/table-service.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
   categories!: IProductsByCategory[];
@@ -59,3 +59,5 @@ export class ProductsComponent {
     console.log(this.categories);
   }
 }
+  
+  }
