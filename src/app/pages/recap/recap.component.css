@@ -1,3 +1,17 @@
+#confirmation {
+    gap: 40px;
+    margin: 30px 0 100px;
+}
+#confirmation-text{
+    font : 400 25px var(--inter);
+}
+
+#buon {
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--rouge);
+    font-style: italic;
+}
 #cart{
     gap: 30px;
     min-height: 100vh;

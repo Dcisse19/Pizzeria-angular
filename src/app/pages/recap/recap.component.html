@@ -1,4 +1,8 @@
 <section id="cart" class="flex column">
+    <div id="confirmation" class="flex column">
+        <p id="confirmation-text">Votre commande a bien été envoyée en cuisine</p>
+        <p id="buon">Buon Appetito !</p>
+    </div>
     <h2>Commande table {{ this.tableService.selectedTableNumber }}</h2>
     <div id="cart-products" class="flex column">
         <app-cart-product-card *ngFor="let cartProduct of cart; let index = index" [index]="index"
@@ -11,4 +15,3 @@
 <section id="newOrder" class="flex column">
     <a id="newOrder-btn" routerLink="/">Commencer une nouvelle commande</a>
 </section>
-
