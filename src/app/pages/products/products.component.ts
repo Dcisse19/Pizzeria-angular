@@ -15,8 +15,6 @@ export class ProductsComponent {
 
   receivedTags: ITag[] = [];
   index!: number;
-
-
   
   constructor(private productsService: ProductsService, private tableService: TableServiceService) {
   }
