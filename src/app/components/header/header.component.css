@@ -36,6 +36,9 @@ h1{
     margin-right: 20px;
     font-style: none;
 }
+.fa-money-bill-wave{
+    color: var(--dark-blue);
+}
 
 .buthead{
     gap: 20px;
