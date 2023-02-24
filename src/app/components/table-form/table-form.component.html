@@ -1,23 +1,23 @@
 <main class="flex column">
 
-    <div class="border">
-        <h1>Benvenuto !</h1>
-        <p>Veuillez renseigner votre numéro de table</p>
+  <div class="border">
+    <h1>Benvenuto !</h1>
+    <p>Veuillez renseigner votre numéro de table</p>
 
-<!-- Création du formulaire avec une liaison à tableForm via la directive formGroup -->
-<form [formGroup]="tableForm" (ngSubmit)="submitForm()">
-    <label for="tableNumber"></label>
-    <!-- Création de l'entrée pour le numéro de table avec une liaison à tableNumber via la directive formControlName -->
-    <input type="text" id="tableNumber" placeholder="Exemple 12" formControlName="tableNumber"
-      [ngClass]="{'error': tableForm.controls['tableNumber'].invalid && (tableForm.controls['tableNumber'].dirty || tableForm.controls['tableNumber'].touched)}"
-      [(ngModel)]="selectedTableNumber">
-    <button type="submit">C’est parti !</button>
-  </form>
-  
-  <!-- Affichage du message d'erreur en rouge si le champ de saisie est invalide et a été "touché" ou "dirty" -->
-  <div class="error"
-    *ngIf="tableForm.controls['tableNumber'].invalid && (tableForm.controls['tableNumber'].dirty || tableForm.controls['tableNumber'].touched)">
-    <p>Numéro de table incorrect.</p>
-  </div>
+    <!-- Création du formulaire avec une liaison à tableForm via la directive formGroup -->
+    <form [formGroup]="tableForm" (ngSubmit)="submitForm()">
+      <label for="tableNumber"></label>
+      <!-- Création de l'entrée pour le numéro de table avec une liaison à tableNumber via la directive formControlName -->
+      <input type="text" id="tableNumber" placeholder="Exemple 12" formControlName="tableNumber"
+        [ngClass]="{'error': tableForm.controls['tableNumber'].invalid && (tableForm.controls['tableNumber'].dirty || tableForm.controls['tableNumber'].touched)}"
+        [(ngModel)]="selectedTableNumber">
+      <button type="submit">C’est parti !</button>
+    </form>
+
+    <!-- Affichage du message d'erreur en rouge si le champ de saisie est invalide et a été "touché" ou "dirty" -->
+    <div class="error"
+      *ngIf="tableForm.controls['tableNumber'].invalid && (tableForm.controls['tableNumber'].dirty || tableForm.controls['tableNumber'].touched)">
+      <p>Numéro de table incorrect.</p>
     </div>
-  </main>
+  </div>
+</main>
