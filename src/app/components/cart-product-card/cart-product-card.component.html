@@ -18,5 +18,5 @@
       </div>
     </div>
   </div>
-  <button (click)="removefromCart()" id="delete-btn">x</button>
+  <button *ngIf="showButton" (click)="removefromCart()" id="delete-btn">x</button>
 </div>

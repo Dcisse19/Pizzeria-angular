@@ -14,21 +14,21 @@ export class ProductDetailComponent {
 
   ngOnInit(){
     this.convertToDecimal();
-    this.setToFalse();
+    this.resetSelectedIngredients();
   }
   convertToDecimal(){
     this.price = this.product.price/100; 
   }
 
-  setToFalse(){
-    this.classesApplied.forEach(classApplied => {
-      classApplied = false;
+  resetSelectedIngredients(){
+    this.product.includedIngredients.forEach(ingredient => {
+      ingredient.isSelected = true;
     })
   }
 
+
   switchIngredient(id:number){
     const ingredient = this.product.includedIngredients.find((ingredient) => ingredient.ingredient.id === id);
-    console.log(ingredient)
     if(ingredient) ingredient.isSelected = !ingredient.isSelected
     // this.classesApplied[index] = !this.classesApplied;
   }

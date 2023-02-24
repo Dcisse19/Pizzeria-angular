@@ -1,4 +1,4 @@
-<section id="cart" class="flex column">
+<section *ngIf="this.cartService.productQuantity > 0" id="cart" class="flex column">
     <div id="subSection" class="flex">
         <h2>Panier</h2>
         <button id="deleteCart-btn" (click)="deleteCart()">Vider le panier</button>
@@ -7,7 +7,15 @@
         <app-cart-product-card *ngFor="let cartProduct of cart; let index = index" [index]="index"
             [product]="cartProduct" [cart]="cart"></app-cart-product-card>
     </div>
+    <a id="toProducts-link" routerLink="/products">Continuer mes achats</a>
     <p id="total"><span>Total :</span> {{this.cartService.totalPrice/100 | number:'1.2'}}€</p>
     <button id="validate-btn" (click)="validateCart()">Table {{ this.tableService.selectedTableNumber }} : Envoyer la commande</button>
-    <a routerLink="modify-table">Votre table n'est pas la {{ this.tableService.selectedTableNumber }} ?</a>
+    <a id="toModifyTable-link" routerLink="/modify-table">Votre table n'est pas la {{ this.tableService.selectedTableNumber }} ?</a>
+</section>
+<section *ngIf="this.cartService.productQuantity === 0" id="noCart" class="flex column">
+        <h2>Panier</h2>
+        <div class="flex column">
+            <p>Vous n'avez aucun article pour le moment</p>
+            <a routerLink="/products">Retourner sur la page produits</a>
+        </div>
 </section>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IProduct, PRODUCTS } from 'src/app/mocks/products.mock';
+import { IExtraIngredient, IProduct, PRODUCTS } from 'src/app/mocks/products.mock';
 import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -13,6 +13,7 @@ export class CustomizeComponent {
 
   product!: IProduct;
   // product: IProduct = PRODUCTS[0].products[6];
+  quantity:number = 1;
   totalPrice! :number;
 
   constructor(
@@ -24,7 +25,9 @@ export class CustomizeComponent {
 
   ngOnInit(){
     this.getProduct();
-    this.getTotalProductPrice();
+    if(this.product){
+      this.totalPrice = this.product.price/100;
+    }
     this.productService.createNewArray();
   }
 
@@ -33,22 +36,25 @@ export class CustomizeComponent {
     const foundProduct = this.productService.getProductById(id);
     if (foundProduct) {
       this.product = foundProduct;
-      console.log(this.product);
+      // console.log(this.product);
     } else {
       this.router.navigate(['/not-found']);
     }
   }
   
-  getTotalProductPrice(){
+  getTotalProductPrice(extra : IExtraIngredient, increase :boolean){
     this.totalPrice = this.product.price/100;
-    this.product.extras.forEach(extra => {
+    if(increase){
       this.totalPrice += (extra.quantity * (extra.additionalPrice/100));
-    })
+    } else {
+      this.totalPrice -= (extra.additionalPrice/100);
+    }
     this.product.price = this.totalPrice*100;
   }
   addToCart(){
    const cartProduct: CartProduct = {
     product: this.product!,
+    quantity: this.quantity
    } 
     this.cartService.addProductToCart(cartProduct);
   }

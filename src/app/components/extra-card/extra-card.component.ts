@@ -16,21 +16,25 @@ export class ExtraCardComponent {
   constructor(private customizeComponent : CustomizeComponent){}
   ngOnInit() {
     this.convertToDecimal();
+    this.resetExtraQuantity();
   }
   convertToDecimal() {
     this.extraPrice = this.extra.additionalPrice / 100;
   }
 
+  resetExtraQuantity(){
+    this.extra.quantity = 0;
+}
   plusQuantity() {
     if (this.extra.quantity < this.extra.maxQuantity) {
       this.extra.quantity++;
-      this.customizeComponent.getTotalProductPrice();
+      this.customizeComponent.getTotalProductPrice(this.extra, true);
     }
   }
   minusQuantity() {
     if (this.extra.quantity > 0) {
       this.extra.quantity--;
-      this.customizeComponent.getTotalProductPrice();
+      this.customizeComponent.getTotalProductPrice(this.extra, false);
     }
   }
 

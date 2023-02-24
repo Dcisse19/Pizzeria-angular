@@ -1,7 +1,7 @@
 #cart{
     gap: 30px;
 }
-#cart h2{
+h2{
     font-size: 20px;
     font-weight: 700;
     font-style: 10px;
@@ -21,6 +21,7 @@
     gap: 25px;
 }
 
+
 #total {
     font: 400 20px var(--inter);
     align-self: flex-end;
@@ -39,8 +40,27 @@
 }
 
 #cart a{
-    align-self: flex-end;
     font: 400 16px var(--inter);
     color: var(--dark-blue);
+    text-decoration: underline;
+}
+#toModifyTable-link{
+    align-self: flex-end;
+}
+#toProducts-link {
+    align-self: flex-start;
+}
+
+#noCart {
+    align-items: flex-start;
+    gap: 50px;
+}
+
+#noCart div {
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#noCart a {
     text-decoration: underline;
 }
