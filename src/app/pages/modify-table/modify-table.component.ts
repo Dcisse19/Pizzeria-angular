@@ -20,6 +20,7 @@ export class ModifyTableComponent implements OnInit {
   } // Injection des dépendances FormBuilder et Router dans notre component
 
   ngOnInit() {
+    this.tableService.redirectIfNoTable();
     // Initialisation de notre formulaire avec un champ "tableNumber" qui doit être valide s'il est non vide, ne contient pas de lettres et est compris entre 1 et 14
     this.tableForm = this.formBuilder.group({
       tableNumber: [this.tableNumber, [Validators.required, this.validateTableNumber, this.validateTableRange]]
