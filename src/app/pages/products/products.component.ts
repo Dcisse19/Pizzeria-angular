@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CATEGORIES, IProduct, IProductsByCategory, ITag, PRODUCTS, TAGS } from 'src/app/mocks/products.mock';
+import { IProduct, IProductsByCategory, ITag, PRODUCTS, TAGS } from 'src/app/mocks/products.mock';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { TableServiceService } from 'src/app/services/table-service.service';
 
