@@ -7,7 +7,6 @@
 <ng-container *ngFor= "let category of categories">
 <div class="text" *ngIf="category.products.length > 0">
 <!-- Affichage des catégories de produits -->
-<div class="text" *ngFor= "let category of categories" >
     <h2>{{category.title}}</h2>
 <!-- Affichage la liste de produits (bouclé à partir de produit-card) -->
     <app-product-list [products]="category.products"></app-product-list>
