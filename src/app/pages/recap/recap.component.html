@@ -7,5 +7,6 @@
     <p id="total"><span>Total :</span> {{this.cartService.totalPrice/100 | number:'1.2'}}€</p>
 </section>
 <section id="newOrder" class="flex column">
-    <button id="newOrder-btn" (click)="startNewOrder()">Commencer une nouvelle commande</button>
+    <a id="newOrder-btn" routerLink="/">Commencer une nouvelle commande</a>
 </section>
+

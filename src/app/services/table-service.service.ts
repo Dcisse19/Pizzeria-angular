@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class TableServiceService {
   private selectedTableNumber$ = new BehaviorSubject<number>(0); // BehaviorSubject pour stocker la dernière valeur sélectionnée
 
-  constructor() {
+  constructor( private router : Router) {
     this.getSelectedTable(); // Récupération de la dernière valeur sélectionnée au démarrage du service
   }
 
@@ -34,5 +35,11 @@ export class TableServiceService {
   clearSelectedTable(): void {
     localStorage.removeItem('TableNumber');
     this.selectedTableNumber$.next(0);
+  }
+
+  redirectIfNoTable(){
+    if(this.selectedTableNumber === 0 || !localStorage.getItem('TableNumber')){
+      this.router.navigate(['/']);
+    }
   }
 }
