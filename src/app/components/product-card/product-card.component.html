@@ -1,8 +1,9 @@
 <section>
-    <div class="container">
-        <a routerLink="/products/{{product.id}}">
-        <img src={{product.picture}} alt={{product.title}}></a>
-        <h3>{{product.title}}</h3>
-        <p>{{product.price/100 | number:'1.2'}}€</p>
-    </div>
+    <a routerLink="/products/{{product.id}}">
+        <div class="container">
+            <img src={{product.picture}} alt={{product.title}}>
+            <h3>{{product.title}}</h3>
+            <p>{{product.price/100 | number:'1.2'}}€</p>
+        </div>
+    </a>
 </section>
