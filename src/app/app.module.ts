@@ -48,8 +48,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     
   ],
   providers: [
-    RecapComponent
-  ],
+    RecapComponent,
+    CartComponent,
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

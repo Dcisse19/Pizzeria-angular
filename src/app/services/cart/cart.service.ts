@@ -1,44 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/mocks/products.mock';
-import { ProductsService } from '../products/products.service';
 
-export interface CartProduct{
+export interface CartProduct {
   product: IProduct;
+  quantity: number;
 }
 
-export interface RecapContent{
+export interface RecapContent {
   products: CartProduct[];
-  totalPrice: number;
+  recapPrice: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  
+
   totalPrice: number = 0;
   productQuantity: number = 0;
-  constructor(
-    private productsService: ProductsService,
-    private router: Router
-  ) {}
+  constructor(private router: Router) { }
 
   // Création du panier
-  private createCart(){
-    const newCart : CartProduct[] = [];
+  private createCart() {
+    const newCart: CartProduct[] = [];
     const newCartString = JSON.stringify(newCart);
     localStorage.setItem('cart', newCartString);
   }
 
   // Sauvegarde du panier
-  private saveCart(cart: CartProduct[]){
+  private saveCart(cart: CartProduct[]) {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  getCart(){
+  getCart() {
     const cart = localStorage.getItem('cart');
-    if(cart){
+    if (cart) {
       return JSON.parse(cart);
     } else {
       this.createCart();
@@ -48,55 +45,73 @@ export class CartService {
   }
 
 
-  initCart(){
+  initCart() {
     this.getCart();
-    // this.getTotalQuantity();
+    this.getTotalQuantity();
     this.getTotalPrice();
   }
 
-  resetCart(){
+  resetCart() {
     this.createCart();
     this.getTotalPrice();
-    // this.getTotalQuantity();
-  } 
+    this.getTotalQuantity();
+  }
 
-  addProductToCart(cartProduct: CartProduct){
+  addProductToCart(cartProduct: CartProduct) {
     const cart = this.getCart();
     cart.push(cartProduct);
+    // this.productQuantity++;
     this.saveCart(cart);
-     // this.getTotalQuantity();
+    this.getTotalQuantity();
     this.getTotalPrice();
     this.router.navigate(['/cart']);
   }
 
-  removeProductFromCart (index:number){
+  removeProductFromCart(index: number) {
     const cart = this.getCart();
-    cart.splice(index,1);
+    cart.splice(index, 1);
+    // if(this.productQuantity > 0){
+    //   this.productQuantity--;
+    // }
     this.saveCart(cart);
-    // this.getTotalQuantity();
+    this.getTotalQuantity();
     this.getTotalPrice();
   }
 
 
 
-  getCartProductById(id:number){
+  getCartProductById(id: number) {
     const cart = this.getCart();
-    const product = cart.find((product:CartProduct) => product.product.id === id);
+    const product = cart.find((product: CartProduct) => product.product.id === id);
     return product;
-   }
+  }
 
 
-  getTotalPrice() : void{
+  getTotalPrice(): void {
     const cart = this.getCart();
-    const total = cart.reduce((accumulator:number, currentValue:CartProduct) => {
-      // récupère produit directement dans le mock
+    const total = cart.reduce((accumulator: number, currentValue: CartProduct) => {
       const product = this.getCartProductById(currentValue.product.id);
-     // Si le produit n'existe pas, on le retourne
-      if(!product) return accumulator;
+      if (!product) return accumulator;
       return accumulator + (product?.product.price);
-    },0);
-    // On assigne la valeur du total à la propriété totalPrice
+    }, 0);
     this.totalPrice = total;
+  }
+
+  getTotalQuantity():void {
+    const cart = this.getCart();
+    const total = cart.reduce((accumulator: number, currentValue: CartProduct) => {
+      return accumulator += currentValue.quantity;
+    },0);
+    this.productQuantity = total;
+  }
+
+  validateCart(recap: RecapContent){
+    // on envoie les données du panier dans un autre tableau de récap avant de supprimer le panier
+    const cart = this.getCart();
+    recap.products = cart;
+    recap.recapPrice = this.totalPrice;
+    this.resetCart;
+    this.router.navigate(['/recapitulatif']);
   }
 
 }

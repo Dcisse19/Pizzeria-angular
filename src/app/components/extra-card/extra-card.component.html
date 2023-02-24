@@ -4,9 +4,9 @@
         <p id="price">{{extraPrice | number:'1.2'}}€</p>
     </div>
     <div id="quantity-picker" class="flex">
-        <button (click)="minusQuantity()" class="quantity-btn minus-btn">-</button>
+        <button (click)="minusQuantity()" [class.inactive]="extra.quantity === 0" class="quantity-btn minus-btn">-</button>
         <p>{{extra.quantity}}</p>
-        <button (click)="plusQuantity()" class="quantity-btn plus-btn">+</button>
+        <button (click)="plusQuantity()" [class.inactive]="extra.quantity === extra.maxQuantity" class="quantity-btn plus-btn">+</button>
     </div>
 </div>
 <hr>
