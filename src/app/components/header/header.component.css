@@ -15,11 +15,14 @@ h1{
 
 .butable{
     background: var(--white);
-    padding: 5px;
+    padding: 6px;
+    padding-left:2px ;
     border-radius: 10px;
     height: 30px;
     width: 70px;
     font-family: var(--inter);
+    font-size: 14px;
+    
 }
 
 .butcart{
@@ -28,6 +31,7 @@ h1{
     border-radius: 10px;
     margin-right: 20px;
     font-style: none;
+    
 }
 #recap-icon{
     background: var(--white);
