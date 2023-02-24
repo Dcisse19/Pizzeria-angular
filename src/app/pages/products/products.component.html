@@ -1,8 +1,12 @@
+<!-- Affichage des boutons de tags -->
 <div class="tag" *ngFor= "let tag of tags ">
-<app-tag-button [element]="tag" (tagName)="setReceivedTags($event)">
+<!-- button reçoit une fonction -->
+<app-tag-button [element]="tag" >
 </app-tag-button>
 </div>
+<!-- Affichage des catégories de produits -->
 <div class="text" *ngFor= "let category of categories" >
     <h2>{{category.title}}</h2>
+<!-- Affichage la liste de produits (bouclé à partir de produit-card) -->
     <app-product-list [products]="category.products"></app-product-list>
 </div>
