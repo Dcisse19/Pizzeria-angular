@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TableServiceService } from 'src/app/services/table-service.service';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -12,14 +13,12 @@ export class HeaderComponent {
 
 showCart : boolean = true;
 
-  constructor(public tableService: TableServiceService, public cartService: CartService, public router : Router) {}
+  constructor(public tableService: TableServiceService, public cartService: CartService, public location : Location) {}
 
   ngOnInit(){
-    console.log(this.router);
-    if(this.router.url.includes('recapitulatif')){
+    if(this.location.path().includes('recapitulatif')){
       this.showCart = false;
     }
-
   }
 }
 

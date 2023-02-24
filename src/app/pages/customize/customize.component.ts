@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IExtraIngredient, IProduct, PRODUCTS } from 'src/app/mocks/products.mock';
 import { CartProduct, CartService } from 'src/app/services/cart/cart.service';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { TableServiceService } from 'src/app/services/table-service.service';
 
 @Component({
   selector: 'app-customize',
@@ -20,10 +21,12 @@ export class CustomizeComponent {
     private productService: ProductsService,
     private cartService: CartService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private tableService : TableServiceService
   ) { }
 
   ngOnInit(){
+    this.tableService.redirectIfNoTable();
     this.getProduct();
     if(this.product){
       this.totalPrice = this.product.price/100;

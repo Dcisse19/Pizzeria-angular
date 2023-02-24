@@ -19,6 +19,7 @@ export class CartComponent {
 
   ngOnInit(){
     this.getCart();
+    this.tableService.redirectIfNoTable();
   }
   getCart(){
     this.cart = this.cartService.getCart();

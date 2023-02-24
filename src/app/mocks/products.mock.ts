@@ -45,6 +45,7 @@ export interface IProductsByCategory {
   products: IProduct[];
 }
 
+
 export const TAGS: ITag [] = [ 
 {
   id: 1,
@@ -78,6 +79,23 @@ titre: "Boissons",
 isSelected:false,
 }] 
 
+export const CATEGORIES: IProductsByCategory[] = [
+  {id: 1,
+   category: "pizza",
+   title: "Les Pizzas della Mama",
+   products: []
+  },
+  {id: 2,
+   category: "drink",
+   title: "Les Boissons della Mama",
+   products: []
+  },
+  {id: 3,
+   category: "dessert",
+   title: "Les Desserts della Mama",
+   products: []
+  },
+]
 
 export const PRODUCTS: IProductsByCategory[] = [
   {

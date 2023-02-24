@@ -2,7 +2,9 @@
 <app-tag-button [element]="tag" (tagName)="setReceivedTags($event)">
 </app-tag-button>
 </div>
-<div class="text" *ngFor= "let category of categories" >
+<ng-container *ngFor= "let category of categories">
+<div class="text" *ngIf="category.products.length > 0">
     <h2>{{category.title}}</h2>
     <app-product-list [products]="category.products"></app-product-list>
 </div>
+</ng-container>

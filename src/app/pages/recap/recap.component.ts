@@ -17,15 +17,18 @@ export class RecapComponent {
 
   ngOnInit(){
     this.getCart();
+    this.tableService.redirectIfNoTable();
   }
   getCart(){
     this.cart = this.cartService.getCart();
     // console.log(this.cart);
   }
 
-  startNewOrder(){
+  ngOnDestroy(){
     this.cartService.resetCart();
     this.tableService.clearSelectedTable();
-    this.router.navigate(['/']);
   }
+  // startNewOrder(){
+  //   this.router.navigate(['/']);
+  // }
 }
