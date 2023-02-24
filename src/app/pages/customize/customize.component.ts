@@ -36,7 +36,7 @@ export class CustomizeComponent {
 
   getProduct() {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    const foundProduct = this.productService.getProductById(id);
+      const foundProduct = this.productService.getProductById(id);
     if (foundProduct) {
       this.product = foundProduct;
       // console.log(this.product);
