@@ -13,7 +13,7 @@ export class FooterComponent {
 
   ngOnInit() {
     const path = this.location.path();
-    const regex = /(modify-table|recap)/;
+    const regex = /(modify-table|recapitulatif)/;
     this.hideFooter = (path === '' || regex.test(path));
   }
 }
