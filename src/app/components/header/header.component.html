@@ -1,9 +1,8 @@
 <header class="flex">
   <h1>Pizzeria Della Mamma</h1>
-
   <div *ngIf="this.tableService.selectedTableNumber !==0" class="flex buthead">
-    <a class="butable" routerLink="modify-table">Table {{ this.tableService.selectedTableNumber }}</a>
-    <a *ngIf="showCart"class="flex butcart" routerLink="cart"> <img src="assets/icons/cart_shopping.png" alt=""> {{ this.cartService.productQuantity }} </a>
-    <div *ngIf="!showCart" id="recap-icon"><i class="fas fa-light fa-money-bill-wave"></i></div>
+    <a class="butable btn" routerLink="modify-table">Table {{ this.tableService.selectedTableNumber }}</a>
+    <a *ngIf="showCart"class="flex btn butcart" routerLink="cart"><i class="fa-solid fa-cart-shopping"></i> {{ this.cartService.productQuantity }} </a>
+    <div *ngIf="!showCart" class="btn recap-icon"><i class="fa-sharp fa-solid fa-receipt"></i></div>
   </div>
 </header>

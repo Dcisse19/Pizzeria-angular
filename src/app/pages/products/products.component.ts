@@ -23,6 +23,11 @@ export class ProductsComponent {
     this.tableService.redirectIfNoTable();
     this.getProductsByTag(this.receivedTags);
   }
+
+  ngOnDestroy(){
+    this.receivedTags.forEach(tag => {tag.isSelected = false});
+  }
+
   setReceivedTags(receivedTag: ITag) {
     if (receivedTag.isSelected) {
       this.receivedTags.push(receivedTag);

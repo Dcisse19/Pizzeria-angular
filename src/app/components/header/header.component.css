@@ -1,19 +1,20 @@
-header{
-    height: 70px;
+header {
+    min-height: 70px;
     background: var(--dark-blue);
     color: var(--white);
-    text-align: center;
-    font-size: 10px;
+    padding: 0 30px;
+    position: relative;
+
+}
+
+h1 {
     font-style: italic;
-    justify-content: space-around;
-    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 33%;
 }
 
-h1{
-    width: 90%;
-}
-
-.butable{
+.btn {
     background: var(--white);
     padding: 6px;
     padding-left:2px ;
@@ -21,8 +22,11 @@ h1{
     height: 32px;
     width: 85px;
     font-family: var(--inter);
+    border-radius: 50px;
     font-size: 14px;
-    
+    padding: 5px 0;
+    text-align: center;
+
 }
 
 .butcart{
@@ -34,20 +38,29 @@ h1{
     margin-right: 20px;
     font-style: none;
     
-}
-#recap-icon{
-    background: var(--white);
-    padding: 5px 20px;
-    border-radius: 10px;
-    margin-right: 20px;
-    font-style: none;
-}
-.fa-money-bill-wave{
-    color: var(--dark-blue);
+
+.buthead {
+    gap: 20px;
+    justify-self: flex-end;
+    position: absolute;
+    right: 5%;
 }
 
-.buthead{
-    gap: 20px;
-    justify-content: space-around;
+.butable {
+    width: 80px;
+}
+
+.butcart {
+    width: 50px;
+    gap: 5px;
+}
+
+.recap-icon {
+    width: 30px;
+}
+
+.fa-receipt,
+.fa-cart-shopping {
+    color: var(--dark-blue);
 }
 
