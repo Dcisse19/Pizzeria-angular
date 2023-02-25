@@ -36,6 +36,25 @@ Implémentation de la méthode validateTableNumber qui est une fonction de valid
 Implémentation de la méthode validateTableRange qui est une fonction de validation personnalisée pour vérifier si le numéro de table est compris entre 1 et 14
 Création de la page Modify-table pour que l'utilisateur puisse modifier le numéro de table en cas d'erreur de saisie tout au long de la commande
 
+Resolution des bugs : 
+
+Problème d'affichage du footer :
+Le code initial du footer (footer.component.ts) utilisait la méthode ngOnInit pour détecter la page courante. Cependant, cette méthode n'était appelée qu'au chargement initial de la page, et pas lors de la navigation entre les pages.
+La solution a été de réécrire le code du footer en utilisant la méthode subscribe de l'objet Router pour détecter les changements de navigation. Ainsi, la variable hideFooter est mise à jour à chaque changement de page, permettant d'afficher ou masquer le footer en fonction de la page courante.
+Outils utilisés : Router, Location
+
+Problème d'affichage du lien "cart" dans le header :
+Le code initial du header (header.component.ts) utilisait la méthode ngOnInit pour détecter la page courante et masquer le lien "cart" sur la page "recapitulatif". Cependant, cette méthode n'était appelée qu'au chargement initial de la page, et pas lors de la navigation entre les pages.
+La solution a été de réécrire le code du header en utilisant la méthode subscribe de l'objet Router pour détecter les changements de navigation. Ainsi, la variable showCart est mise à jour à chaque changement de page, permettant d'afficher ou masquer le lien "cart" en fonction de la page courante.
+Outils utilisés : Router, Location
+
+Problème d'affichage du footer sur la page "products" :
+Après la résolution des deux premiers problèmes, le footer était toujours masqué sur la page "products" après la navigation depuis une autre page.
+La solution a été de modifier le code de l'AppComponent pour appeler la méthode hideFooter à chaque changement de page, afin de s'assurer que la variable hideFooter est correctement mise à jour pour chaque page.
+Outils utilisés : Router, Location
+
+En résumé, les problèmes ont été résolus en réécrivant le code pour utiliser la méthode subscribe de l'objet Router, qui permet de détecter les changements de navigation et de mettre à jour les variables en conséquence. La méthode ngOnInit n'est donc pas adaptée pour détecter les changements de page, car elle n'est appelée qu'au chargement initial de la page.
+
 
 ------- PAGES CUSTOMISATION, PANIER ET RECAPITULATIF EFFECTUEES PAR DIAMBERE ---------
 
