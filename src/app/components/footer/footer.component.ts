@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -7,13 +9,18 @@ import { Location } from '@angular/common';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  hideFooter: boolean = false;
+  hideFooter: boolean = true;
 
-  constructor(private location: Location) { }
+  constructor(private router: Router,private location: Location) { }
 
   ngOnInit() {
-    const path = this.location.path();
-    const regex = /(modify-table|recapitulatif)/;
-    this.hideFooter = (path === '' || regex.test(path));
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const path = this.location.path();
+        const regex = /(modify-table|recapitulatif)/;
+        this.hideFooter = (path === '' || regex.test(path));
+        console.log('FooterComponent hideFooter:', this.hideFooter);
+      });
   }
 }
