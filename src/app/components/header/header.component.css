@@ -16,6 +16,11 @@ h1 {
 
 .btn {
     background: var(--white);
+    padding: 6px;
+    padding-left:2px ;
+    border-radius: 50px;
+    height: 32px;
+    width: 85px;
     font-family: var(--inter);
     border-radius: 50px;
     font-size: 14px;
@@ -23,6 +28,16 @@ h1 {
     text-align: center;
 
 }
+
+.butcart{
+    width: 66px;
+    height: 32px;
+    background: var(--white);
+    padding: 5px 20px;
+    border-radius: 50px;
+    margin-right: 20px;
+    font-style: none;
+    
 
 .buthead {
     gap: 20px;
