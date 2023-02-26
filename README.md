@@ -36,6 +36,7 @@ Implémentation de la méthode validateTableNumber qui est une fonction de valid
 Implémentation de la méthode validateTableRange qui est une fonction de validation personnalisée pour vérifier si le numéro de table est compris entre 1 et 14
 Création de la page Modify-table pour que l'utilisateur puisse modifier le numéro de table en cas d'erreur de saisie tout au long de la commande
 
+<<<<<<< HEAD
 Resolution des bugs : 
 
 Problème d'affichage du footer :
@@ -54,6 +55,48 @@ La solution a été de modifier le code de l'AppComponent pour appeler la métho
 Outils utilisés : Router, Location
 
 En résumé, les problèmes ont été résolus en réécrivant le code pour utiliser la méthode subscribe de l'objet Router, qui permet de détecter les changements de navigation et de mettre à jour les variables en conséquence. La méthode ngOnInit n'est donc pas adaptée pour détecter les changements de page, car elle n'est appelée qu'au chargement initial de la page.
+=======
+------- PAGE PRODUCTS ET PAGE 404 PAR Lilianna ---------
+
+Les  étapes de mon code sont suivantes:
+
+1.création de la page Products (parent)
+2.Création des components:
+-product-list  (enfant1) 
+-product-card (enfant2)
+-tag-button (enfant)
+3.création de la page 404 Not-found
+
+Component product-card : 
+A/ Decorateur @input () reçoit des données de son parent: page Products, permettant déclarer une propriété d'entrée
+pour afficher une liste de produit  avec leurs informations, 
+dans une mise en page conforme à la maquette figma,
+B/ L’attribut routerLink situé dans la balise <img> redirige sur la page Customize.
+C/ Au niveau de la balise prix du produit utilisation du filtre "number" pour formater le prix avec deux décimales après la virgule. Le nombre "1.2" spécifie que le nombre doit être affiché avec un minimum de 1 chiffre avant la décimale et un maximum de 2 chiffres après la décimale.
+
+Component product-list:
+Possède une directive *ngFor qui boucle sur un tableau de product-card.
+
+Component tag-button
+A/ Decorateur @input () reçoit des données en entrée de son parent: page Products,
+B/ Bouton,  lié à l'état de sélection de l'élément via une classe CSS  ".active"qui permet changer la couleur de bouton au click.
+C/ La fonction "switchTag()" permet de basculer l'état de sélection de l'élément en inversant sa valeur.
+D/  Output() crée une propriété utilisée pour créer un événement "tagName" qui émet un événement à chaque fois qu'un changement se produit dans cette propriété.
+Le composant parent qui utilise le composant "TagButtonComponent" peut écouter l'événement "tagName"
+
+=== PAGE PRODUCTS === 
+A/ Boucle *ngFor parcourt le tableau "tags" l’affiche des butons de tags
+B/  La fonction ‘’setReceivedTags’’ est appelée chaque fois qu'un tag est sélectionné ou désélectionné, et elle ajoute ou supprime le tag de la liste des tags sélectionnés en conséquence.
+C/La fonction ‘’getProductsByTag’’est utilisée pour filtrer les produits en fonction des tags sélectionnés. Si des tags sont sélectionnés, elle parcourt chaque catégorie de produits et filtre les produits qui contiennent au moins un des tags sélectionnés. Si aucun tag n'est sélectionné, tous les produits sont affichés.
+D/ 2ème boucle *ngFor pour afficher la liste des produits pour chaque catégorie, associé avec la directive *ngIf avec la condition "category.products.length > 0 »,ce qui signifie que l'élément ne sera affiché que si la catégorie a des produits, c'est-à-dire si la longueur de l'array "category.products" est supérieure à zéro. Si la condition est vraie, l'élément sera affiché. Sinon, il sera masqué.
+
+=== PAGE 404 === 
+A/ La méthode ngOnInit() est utilisée pour démarrer une animation de rotation en continu d'un élément HTML avec la classe CSS "cheese".
+la fonction spin() est appelée dans la méthode ngOnInit() pour démarrer l'animation de rotation en continu.
+B/ La fonction spin() utilise setInterval() pour effectuer une rotation de l'élément cheese en ajoutant progressivement des degrés à sa rotation. La fonction réinitialise le nombre de degrés à 0 une fois que la rotation atteint 360 degrés.
+C/Le sélecteur de document .querySelector() est utilisé pour trouver l'élément HTML "cheese" dans le DOM, puis le transform CSS est modifié avec la propriété style.transform pour appliquer la rotation.
+
+>>>>>>> 35620767b147562e1dc80ee16237708388a9084a
 
 
 ------- PAGES CUSTOMISATION, PANIER ET RECAPITULATIF EFFECTUEES PAR DIAMBERE ---------
@@ -82,3 +125,4 @@ Une fois le panier validé, les articles du panier sont conservés dans le local
 Les informations concernant la table sont récupérées dans le localStorage à l'aide du tableService.
 
 Sur la page de récapitulatif, l'utilisateur a la possibilité de passr une nouvelle commande en revenant à la page d'accueil de sélection du numéro de table. Lorsqu'il appuie sur le lien, tout est remis à zéro. Le panier est vidé dans le localStorage, le numéro de table est aussi supprimé et l'utilisateur est redirigé sur la page d'accueil.
+
