@@ -48,7 +48,7 @@ export class CustomizeComponent {
   getTotalProductPrice(extra : IExtraIngredient, increase :boolean){
     this.totalPrice = this.product.price/100;
     if(increase){
-      this.totalPrice += (extra.quantity * (extra.additionalPrice/100));
+      this.totalPrice += (extra.additionalPrice/100);
     } else {
       this.totalPrice -= (extra.additionalPrice/100);
     }
